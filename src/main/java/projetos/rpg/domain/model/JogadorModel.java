@@ -11,7 +11,7 @@ public class JogadorModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     private String username;
     private String password;
@@ -24,7 +24,7 @@ public class JogadorModel implements Serializable {
 
     // Construtor
 
-    public JogadorModel(int id, String username, String password, String email, Boolean ativo) {
+    public JogadorModel(Long id, String username, String password, String email, Boolean ativo) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -34,7 +34,7 @@ public class JogadorModel implements Serializable {
 
     // Getter e Setter
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
