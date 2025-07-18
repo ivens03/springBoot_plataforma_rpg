@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "user_rpg")
-public class User implements Serializable {
+@Table(name = "jogador")
+public class JogadorModel implements Serializable {
 
     // Colunas
 
@@ -16,18 +16,20 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String email;
+    private Boolean ativo;
 
     // Construtor padrão para JPA
 
-    public User () {}
+    public JogadorModel() {}
 
     // Construtor
 
-    public User(int id, String username, String password, String email) {
+    public JogadorModel(int id, String username, String password, String email, Boolean ativo) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
+        this.ativo = ativo;
     }
 
     // Getter e Setter
@@ -36,7 +38,7 @@ public class User implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -62,5 +64,13 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
 }
