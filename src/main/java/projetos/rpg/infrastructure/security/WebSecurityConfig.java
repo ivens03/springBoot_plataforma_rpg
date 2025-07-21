@@ -6,12 +6,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -24,14 +20,12 @@ public class WebSecurityConfig {
                 .cors(Customizer.withDefaults()) // Habilita CORS com configurações padrão
                 .csrf(csrf -> csrf.disable()) // ATENÇÃO: Desabilitado para desenvolvimento - habilitar em produção com token management
                 .authorizeHttpRequests(auth -> auth
-                        // Recursos estáticos
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
-                        // Documentação da API
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                        // Páginas de login públicas
                         .requestMatchers("/login", "/login?error", "/login?logout").permitAll()
-                        // Endpoint público para criação de jogadores (cadastro)
                         .requestMatchers(HttpMethod.POST, "/jogador/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/jogador/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/jogador/**").permitAll()
                         // Todas as outras requisições exigem autenticação
                         .anyRequest().authenticated()
                 )
