@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Plataforma de RPG</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+
+<div class="d20-background">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+        <defs>
+            <linearGradient id="d20Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#4a1a7a;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#3a0a6a;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path fill="url(#d20Gradient)" stroke="#8e44ad" stroke-width="0.5"
+              d="M50 2 L20 25 L25 60 L50 98 L75 60 L80 25 Z
+                     M50 2 L20 25 L50 40 Z
+                     M50 2 L80 25 L50 40 Z
+                     M20 25 L25 60 L5 45 Z
+                     M80 25 L75 60 L95 45 Z
+                     M25 60 L50 98 L5 75 Z
+                     M75 60 L50 98 L95 75 Z
+                     M50 40 L25 60 L50 65 Z
+                     M50 40 L75 60 L50 65 Z
+                     M20 25 L5 45 L25 60 L50 40 Z
+                     M80 25 L95 45 L75 60 L50 40 Z
+                     M5 45 L5 75 L25 60 Z
+                     M95 45 L95 75 L75 60 Z
+                     M5 75 L50 98 L50 65 L25 60 Z
+                     M95 75 L50 98 L50 65 L75 60 Z
+                   " />
+    </svg>
+</div>
+
+<div class="form-container">
+    <div id="login-form" class="form-content">
+        <h2 class="form-title text-4xl">Entrar na Guilda</h2>
+        <form>
+            <div class="input-group">
+                <label for="login-email" class="input-label">Email</label>
+                <input type="email" id="login-email" class="input-field" placeholder="seu-email@aventura.com" required>
+            </div>
+            <div class="input-group">
+                <label for="login-password" class="input-label">Senha Secreta</label>
+                <input type="password" id="login-password" class="input-field" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="submit-button">Iniciar Missão</button>
+        </form>
+        <p class="toggle-link-container">
+            Novo aventureiro? <a href="#" id="show-register" class="toggle-link">Crie sua Ficha</a>
+        </p>
+    </div>
+
+    <div id="register-form" class="form-content hidden">
+        <h2 class="form-title text-4xl">Criar Personagem</h2>
+        <form>
+            <div class="input-group">
+                <label for="register-name" class="input-label">Nome de Herói</label>
+                <input type="text" id="register-name" class="input-field" placeholder="Ex: Arion, o Bravo" required>
+            </div>
+            <div class="input-group">
+                <label for="register-email" class="input-label">Email</label>
+                <input type="email" id="register-email" class="input-field" placeholder="seu-email@aventura.com" required>
+            </div>
+            <div class="input-group">
+                <label for="register-password" class="input-label">Senha Secreta</label>
+                <input type="password" id="register-password" class="input-field" placeholder="Crie uma senha forte" required>
+            </div>
+            <button type="submit" class="submit-button">Forjar Lenda</button>
+        </form>
+        <p class="toggle-link-container">
+            Já tem uma ficha? <a href="#" id="show-login" class="toggle-link">Entre na Guilda</a>
+        </p>
+    </div>
+</div>
+
+<script th:src="@{/js/login.js}"></script>
+
+</body>
+</html>

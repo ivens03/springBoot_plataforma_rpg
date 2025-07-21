@@ -1,0 +1,136 @@
+/* src/main/resources/static/css/login-rpg.css */
+
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #2a0a4a;
+    color: #e0d8f0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* --- Estilo do D20 de Fundo --- */
+.d20-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    height: 90vh;
+    max-width: 800px;
+    max-height: 800px;
+    z-index: 0;
+    opacity: 0.1;
+}
+
+.d20-background svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Contêiner Principal --- */
+.form-container {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(26, 13, 41, 0.8);
+    border: 1px solid #6a3a99;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.5s ease;
+}
+
+/* --- Estilos dos Formulários --- */
+.form-content {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.form-content.hidden {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+.form-title {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #dcb0ff;
+    text-shadow: 0 0 10px #dcb0ff;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #c0b4d4;
+}
+
+.input-field {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #5a2a89;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: #e0d8f0;
+    font-family: 'Cinzel', serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #c599ff;
+    box-shadow: 0 0 15px rgba(205, 153, 255, 0.3);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: linear-gradient(45deg, #8e44ad, #5e2a89);
+    color: #ffffff;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.4);
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(142, 68, 173, 0.6);
+    background: linear-gradient(45deg, #9b59b6, #6a3a99);
+}
+
+.toggle-link-container {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.toggle-link {
+    color: #dcb0ff;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.toggle-link:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #fff;
+}
