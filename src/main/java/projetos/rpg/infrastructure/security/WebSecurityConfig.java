@@ -21,32 +21,37 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .cors(Customizer.withDefaults())
-            .csrf(csrf -> csrf.disable()) // Desabilitado para APIs REST, habilitar para produção
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
-                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                .requestMatchers("/login", "/login?error", "/login?logout").permitAll()
-                .requestMatchers(HttpMethod.POST, "/jogador/**").permitAll()
-                .anyRequest().authenticated()
-            )
-            .formLogin(form -> form
-                .loginPage("/login")
-                .defaultSuccessUrl("/HomeJogador", true)
-                .failureUrl("/login?error=true")
-                .permitAll()
-            )
-            .logout(logout -> logout
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/login?logout")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
-                .permitAll()
-            )
-            .exceptionHandling(exception -> exception
-                .accessDeniedPage("/acesso-negado")
-            );
-            
+                .cors(Customizer.withDefaults()) // Habilita CORS com configurações padrão
+                .csrf(csrf -> csrf.disable()) // ATENÇÃO: Desabilitado para desenvolvimento - habilitar em produção com token management
+                .authorizeHttpRequests(auth -> auth
+                        // Recursos estáticos
+                        .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
+                        // Documentação da API
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+                        // Páginas de login públicas
+                        .requestMatchers("/login", "/login?error", "/login?logout").permitAll()
+                        // Endpoint público para criação de jogadores (cadastro)
+                        .requestMatchers(HttpMethod.POST, "/jogador/**").permitAll()
+                        // Todas as outras requisições exigem autenticação
+                        .anyRequest().authenticated()
+                )
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/HomeJogador", true) // Redirecionamento pós-login
+                        .failureUrl("/login?error=true") // Tratamento de falha
+                        .permitAll()
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout") // Feedback de logout
+                        .invalidateHttpSession(true) // Invalida sessão
+                        .deleteCookies("JSESSIONID") // Remove cookies
+                        .permitAll()
+                )
+                .exceptionHandling(exception -> exception
+                        .accessDeniedPage("/acesso-negado") // Página customizada para acesso negado
+                );
+
         return http.build();
     }
 
@@ -55,14 +60,4 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails user = User.builder()
-            .username("username")
-            .password(passwordEncoder().encode("password"))
-            .roles("jogador")
-            .build();
-            
-        return new InMemoryUserDetailsManager(user);
-    }
 }
