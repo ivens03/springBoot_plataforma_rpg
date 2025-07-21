@@ -1,6 +1,8 @@
 package projetos.rpg.domain.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+
 import java.io.Serializable;
 
 @Entity
@@ -13,9 +15,16 @@ public class JogadorModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String username;
+
+
     private String password;
+
+    @Email
+    @Column(nullable = false, unique = true)
     private String email;
+
     private Boolean ativo;
 
     // Construtor padrão para JPA

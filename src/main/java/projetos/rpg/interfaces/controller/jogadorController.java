@@ -8,7 +8,7 @@ import projetos.rpg.domain.model.JogadorModel;
 import java.util.List;
 
 @RestController
-@RequestMapping("jogador")
+@RequestMapping("/jogador")
 public class jogadorController {
 
     // Injeção do repositorio
