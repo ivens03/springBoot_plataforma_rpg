@@ -25,7 +25,9 @@ public class JogadorModel implements Serializable {
     @Column(nullable = false, unique = true)
     private String email;
 
-    private Boolean ativo;
+    // Todo jogador começar ativo dentro do sistema.
+
+    private Boolean ativo = true;
 
     // Construtor padrão para JPA
 

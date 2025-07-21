@@ -40,11 +40,19 @@ public class jogadorController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Pegar todos os jogadores
+    // Lista todos os jogadores sendo ativos ou não ativos.
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<JogadorModel>> listaTodosJogadores() {
         List<JogadorModel> listaTodos = jogadorService.listarJogadores();
+        return ResponseEntity.ok(listaTodos);
+    }
+
+    // Listar Todos os jogadores Jogadores ativos.
+
+    @GetMapping("/ativo")
+    public ResponseEntity<List<JogadorModel>> listaJogadoresAtivos() {
+        List<JogadorModel> listaTodos = jogadorService.listarJogadoresAtivos();
         return ResponseEntity.ok(listaTodos);
     }
 
@@ -61,7 +69,7 @@ public class jogadorController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarUmJogador(@PathVariable Long id) {
-        jogadorService.deletarDB(id);
+        jogadorService.desativarJogador(id);
         return ResponseEntity.noContent().build();
     }
 

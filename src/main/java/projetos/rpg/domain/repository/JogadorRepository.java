@@ -4,8 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import projetos.rpg.domain.model.JogadorModel;
 
-import java.util.Optional;
+import java.util.List;
 
 @Repository
 public interface JogadorRepository extends JpaRepository<JogadorModel, Long> {
+
+    // Consulta para pegar jogadores ativo no sistema
+    List<JogadorModel> findByAtivoTrue();
+
 }

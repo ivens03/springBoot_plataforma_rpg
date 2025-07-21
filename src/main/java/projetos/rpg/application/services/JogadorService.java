@@ -2,6 +2,7 @@ package projetos.rpg.application.services;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import projetos.rpg.domain.model.JogadorModel;
 import projetos.rpg.domain.repository.JogadorRepository;
 
@@ -40,20 +41,31 @@ public class JogadorService {
         return jogadorRepository.save(jogador);
     }
 
-    // Listar todos
+    // Listar todos jogadores, mesmo estando desativados.
+
     public List<JogadorModel> listarJogadores() {
         return jogadorRepository.findAll();
     }
 
-    // Listar um por um
+    // Listar todos jogadores ativos
+
+    public List<JogadorModel> listarJogadoresAtivos() {
+        return jogadorRepository.findByAtivoTrue();
+    }
+
+    // Listar um jogador ativo por vez.
 
     public Optional<JogadorModel> buscarJogadorPorId(Long id) {
         return jogadorRepository.findById(id);
     }
 
-    // Deletar
+    // Deletar de forma logica "somente desativando o usaurio".
 
-    public void deletarDB (Long id) {
-        jogadorRepository.deleteById(id);
+    @Transactional
+    public void desativarJogador(Long id) {
+        jogadorRepository.findById(id).ifPresent(jogador -> {
+            jogador.setAtivo(false);
+            jogadorRepository.save(jogador);
+        });
     }
 }
