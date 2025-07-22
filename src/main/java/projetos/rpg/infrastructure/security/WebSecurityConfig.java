@@ -6,6 +6,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -14,25 +15,31 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
+    private final CustomUserDetailsService userDetailsService;
+
+    public WebSecurityConfig(CustomUserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .cors(Customizer.withDefaults()) // Habilita CORS com configurações padrão
-                .csrf(csrf -> csrf.disable()) // ATENÇÃO: Desabilitado para desenvolvimento - habilitar em produção com token management
+                .csrf(AbstractHttpConfigurer::disable) // ATENÇÃO: Desabilitado para desenvolvimento - habilitar em produção com token management
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                        .requestMatchers("/login", "/login?error", "/login?logout").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/jogador/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/jogador/**").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, "/jogador/**").permitAll()
-                        // Todas as outras requisições exigem autenticação
+                        .requestMatchers("/jogador", "/login", "/registro").permitAll() // Permite cadastro e login sem autenticação
                         .anyRequest().authenticated()
                 )
+                .userDetailsService(userDetailsService)
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/HomeJogador", true) // Redirecionamento pós-login
-                        .failureUrl("/login?error=true") // Tratamento de falha
+                        .loginProcessingUrl("/login")
+                        .usernameParameter("username")
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/HomeJogador", true)
+                        .failureUrl("/login?error=true")
                         .permitAll()
                 )
                 .logout(logout -> logout
@@ -44,6 +51,10 @@ public class WebSecurityConfig {
                 )
                 .exceptionHandling(exception -> exception
                         .accessDeniedPage("/acesso-negado") // Página customizada para acesso negado
+                )
+                .rememberMe(remember -> remember
+                        .key("uniqueAndSecret")
+                        .tokenValiditySeconds(86400) // 24 horas
                 );
 
         return http.build();

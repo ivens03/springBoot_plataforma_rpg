@@ -1,4 +1,4 @@
-/* src/main/resources/static/js/login-rpg.js */
+/* src/main/resources/static/js/login.js */
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
@@ -6,11 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const showRegisterLink = document.getElementById('show-register');
     const showLoginLink = document.getElementById('show-login');
 
+    // Mostrar mensagem de sucesso se o registro foi bem-sucedido
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('registered') === 'true') {
+        alert('Cadastro realizado com sucesso! Faça login para continuar.');
+    }
+
     // Função para alternar para o formulário de registro
     showRegisterLink.addEventListener('click', (e) => {
         e.preventDefault();
         loginForm.classList.add('hidden');
         registerForm.classList.remove('hidden');
+        // Rolar para o topo do formulário de registro
+        registerForm.scrollIntoView({ behavior: 'smooth' });
     });
 
     // Função para alternar para o formulário de login
@@ -18,22 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         registerForm.classList.add('hidden');
         loginForm.classList.remove('hidden');
-    });
-
-    // Simulação de envio de formulário de login
-    loginForm.querySelector('form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('login-email').value;
-        console.log(`Tentativa de login com o email: ${email}`);
-        alert('Login simulado com sucesso! Verifique o console.');
-    });
-
-    // Simulação de envio de formulário de registro
-    registerForm.querySelector('form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('register-name').value;
-        const email = document.getElementById('register-email').value;
-        console.log(`Tentativa de registro para o Herói: ${name} com o email: ${email}`);
-        alert('Registro simulado com sucesso! Verifique o console.');
+        // Rolar para o topo do formulário de login
+        loginForm.scrollIntoView({ behavior: 'smooth' });
     });
 });
