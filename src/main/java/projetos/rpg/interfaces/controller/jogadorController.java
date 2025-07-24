@@ -2,7 +2,7 @@ package projetos.rpg.interfaces.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import projetos.rpg.application.services.JogadorService;
+import projetos.rpg.application.services.jogador.JogadorService;
 import projetos.rpg.domain.model.JogadorModel;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package projetos.rpg.application.services;
+package projetos.rpg.application.services.jogador;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
