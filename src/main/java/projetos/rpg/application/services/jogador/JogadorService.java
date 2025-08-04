@@ -3,7 +3,7 @@ package projetos.rpg.application.services.jogador;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import projetos.rpg.domain.model.JogadorModel;
+import projetos.rpg.domain.model.jogador.JogadorModel;
 import projetos.rpg.domain.repository.JogadorRepository;
 
 import java.util.List;

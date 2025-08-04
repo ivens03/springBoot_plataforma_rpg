@@ -1,4 +1,4 @@
-package projetos.rpg.domain.model.raca;
+package projetos.rpg.domain.model.ficha.raca;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

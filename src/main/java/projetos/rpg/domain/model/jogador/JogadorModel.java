@@ -1,23 +1,24 @@
-package projetos.rpg.domain.model;
+package projetos.rpg.domain.model.jogador;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 
 import java.io.Serializable;
 
+/**
+ * Ester model é a classe responsavel pelos Jogadores (Usuarios)
+ * Esta classe modela as informações básicas de um jogador
+ */
+
 @Entity
 @Table(name = "jogador")
 public class JogadorModel implements Serializable {
 
-    // Colunas
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @Column(nullable = false, unique = true)
     private String username;
-
 
     private String password;
 
