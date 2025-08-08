@@ -14,7 +14,7 @@ public class LivrosReferenciasModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_livro_referencias;
 
-    private String img_capa_livro;
+    private String url_img_capa_livro;
     private String titulo_livro;
     private Integer ano_livro;
     private String resumo;
@@ -26,9 +26,9 @@ public class LivrosReferenciasModel implements Serializable {
 
     // Construtor
 
-    public LivrosReferenciasModel(Long id_livro_referencias, String img_capa_livro, String titulo_livro, Integer ano_livro, String resumo, Boolean livro_oficial) {
+    public LivrosReferenciasModel(Long id_livro_referencias, String url_img_capa_livro, String titulo_livro, Integer ano_livro, String resumo, Boolean livro_oficial) {
         this.id_livro_referencias = id_livro_referencias;
-        this.img_capa_livro = img_capa_livro;
+        this.url_img_capa_livro = url_img_capa_livro;
         this.titulo_livro = titulo_livro;
         this.ano_livro = ano_livro;
         this.resumo = resumo;
@@ -45,12 +45,12 @@ public class LivrosReferenciasModel implements Serializable {
         this.id_livro_referencias = id_livro_referencias;
     }
 
-    public String getImg_capa_livro() {
-        return img_capa_livro;
+    public String getUrl_img_capa_livro() {
+        return url_img_capa_livro;
     }
 
-    public void setImg_capa_livro(String img_capa_livro) {
-        this.img_capa_livro = img_capa_livro;
+    public void setUrl_img_capa_livro(String url_img_capa_livro) {
+        this.url_img_capa_livro = url_img_capa_livro;
     }
 
     public String getTitulo_livro() {

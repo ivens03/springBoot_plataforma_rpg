@@ -30,6 +30,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/jogador", "/login", "/registro").permitAll() // Permite cadastro e login sem autenticação
+                        .requestMatchers("/api/images/upload").permitAll() // Imgs
                         .requestMatchers(/*HttpMethod.POST,*/ "/itens").permitAll()
                         .anyRequest().authenticated()
                 )
