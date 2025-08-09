@@ -1,9 +1,7 @@
 package projetos.rpg.domain.model.ficha.statusBasicos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import projetos.rpg.domain.model.post.ImgModel;
 
 import java.io.Serializable;
 
@@ -14,11 +12,15 @@ public class LivrosReferenciasModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_livro_referencias;
 
-    private String url_img_capa_livro;
+    @OneToOne
+    @JoinColumn(name = "urlImagem")
+    private ImgModel url_img_capa_livro;
+
     private String titulo_livro;
     private Integer ano_livro;
     private String resumo;
     private Boolean livro_oficial;
+    private Boolean livro_ativo_DB;
 
     // Construtor padrão para JPA
 
@@ -26,13 +28,14 @@ public class LivrosReferenciasModel implements Serializable {
 
     // Construtor
 
-    public LivrosReferenciasModel(Long id_livro_referencias, String url_img_capa_livro, String titulo_livro, Integer ano_livro, String resumo, Boolean livro_oficial) {
+    public LivrosReferenciasModel(Long id_livro_referencias, ImgModel url_img_capa_livro, String titulo_livro, Integer ano_livro, String resumo, Boolean livro_oficial, Boolean livro_ativo_DB) {
         this.id_livro_referencias = id_livro_referencias;
         this.url_img_capa_livro = url_img_capa_livro;
         this.titulo_livro = titulo_livro;
         this.ano_livro = ano_livro;
         this.resumo = resumo;
         this.livro_oficial = livro_oficial;
+        this.livro_ativo_DB = livro_ativo_DB;
     }
 
     // Getter e Setter
@@ -45,11 +48,11 @@ public class LivrosReferenciasModel implements Serializable {
         this.id_livro_referencias = id_livro_referencias;
     }
 
-    public String getUrl_img_capa_livro() {
+    public ImgModel getUrl_img_capa_livro() {
         return url_img_capa_livro;
     }
 
-    public void setUrl_img_capa_livro(String url_img_capa_livro) {
+    public void setUrl_img_capa_livro(ImgModel url_img_capa_livro) {
         this.url_img_capa_livro = url_img_capa_livro;
     }
 
@@ -83,5 +86,13 @@ public class LivrosReferenciasModel implements Serializable {
 
     public void setLivro_oficial(Boolean livro_oficial) {
         this.livro_oficial = livro_oficial;
+    }
+
+    public Boolean getLivro_ativo_DB() {
+        return livro_ativo_DB;
+    }
+
+    public void setLivro_ativo_DB(Boolean livro_ativo_DB) {
+        this.livro_ativo_DB = livro_ativo_DB;
     }
 }
