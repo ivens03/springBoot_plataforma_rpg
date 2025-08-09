@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import projetos.rpg.domain.model.ficha.statusBasicos.LivrosReferenciasModel;
 import projetos.rpg.domain.repository.LivrosReferenciasRepository;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 /**
@@ -23,6 +24,8 @@ public class LivrosReferenciasServices {
     // Salvar
 
     public LivrosReferenciasModel salvarLivroReferencia (LivrosReferenciasModel livrosReferenciasModel) {
+        LocalDateTime dataAtual = LocalDateTime.now();
+        livrosReferenciasModel.setData_lacamento_dentro_sistema_livro(dataAtual);
         return livrosReferenciasRepository.save(livrosReferenciasModel);
     }
 

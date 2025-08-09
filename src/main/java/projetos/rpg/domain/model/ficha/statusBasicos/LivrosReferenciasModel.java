@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import projetos.rpg.domain.model.post.ImgModel;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 public class LivrosReferenciasModel implements Serializable {
@@ -21,6 +23,8 @@ public class LivrosReferenciasModel implements Serializable {
     private String resumo;
     private Boolean livro_oficial;
     private Boolean livro_ativo_DB;
+    private Date data_lacamento_livro;
+    private LocalDateTime data_lacamento_dentro_sistema_livro;
 
     // Construtor padrão para JPA
 
@@ -28,7 +32,7 @@ public class LivrosReferenciasModel implements Serializable {
 
     // Construtor
 
-    public LivrosReferenciasModel(Long id_livro_referencias, ImgModel url_img_capa_livro, String titulo_livro, Integer ano_livro, String resumo, Boolean livro_oficial, Boolean livro_ativo_DB) {
+    public LivrosReferenciasModel(Long id_livro_referencias, ImgModel url_img_capa_livro, String titulo_livro, Integer ano_livro, String resumo, Boolean livro_oficial, Boolean livro_ativo_DB,Date data_lacamento_livro, LocalDateTime data_lacamento_dentro_sistema_livro) {
         this.id_livro_referencias = id_livro_referencias;
         this.url_img_capa_livro = url_img_capa_livro;
         this.titulo_livro = titulo_livro;
@@ -36,6 +40,8 @@ public class LivrosReferenciasModel implements Serializable {
         this.resumo = resumo;
         this.livro_oficial = livro_oficial;
         this.livro_ativo_DB = livro_ativo_DB;
+        this.data_lacamento_livro = data_lacamento_livro;
+        this.data_lacamento_dentro_sistema_livro = data_lacamento_dentro_sistema_livro;
     }
 
     // Getter e Setter
@@ -94,5 +100,21 @@ public class LivrosReferenciasModel implements Serializable {
 
     public void setLivro_ativo_DB(Boolean livro_ativo_DB) {
         this.livro_ativo_DB = livro_ativo_DB;
+    }
+
+    public Date getData_lacamento_livro() {
+        return data_lacamento_livro;
+    }
+
+    public void setData_lacamento_livro(Date data_lacamento_livro) {
+        this.data_lacamento_livro = data_lacamento_livro;
+    }
+
+    public LocalDateTime getData_lacamento_dentro_sistema_livro() {
+        return data_lacamento_dentro_sistema_livro;
+    }
+
+    public void setData_lacamento_dentro_sistema_livro(LocalDateTime data_lacamento_dentro_sistema_livro) {
+        this.data_lacamento_dentro_sistema_livro = data_lacamento_dentro_sistema_livro;
     }
 }
