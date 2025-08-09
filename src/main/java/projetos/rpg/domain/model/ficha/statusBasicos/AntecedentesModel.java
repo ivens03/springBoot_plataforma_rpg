@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+/// Para existir um antecedentes precisa de um livro esté livro pode ser official ou não
+/// Guarda informações dos antecedentes do RPG
+
 @Entity
 @Table(name = "antecedentes")
 public class AntecedentesModel implements Serializable {

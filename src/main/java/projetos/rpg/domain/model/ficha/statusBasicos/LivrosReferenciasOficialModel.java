@@ -7,8 +7,11 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+/// Este Model serve para salvar os livros faz a composição de antecedentes, classes, raças e afins
+
 @Entity
-public class LivrosReferenciasModel implements Serializable {
+@Table(name = "Livros_base_oficial")
+public class LivrosReferenciasOficialModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,23 +23,21 @@ public class LivrosReferenciasModel implements Serializable {
 
     private String titulo_livro;
     private String resumo;
-    private Boolean livro_oficial;
     private Boolean livro_ativo_DB;
     private Date data_lacamento_livro;
     private LocalDateTime data_lacamento_dentro_sistema_livro;
 
     // Construtor padrão para JPA
 
-    public LivrosReferenciasModel() {}
+    public LivrosReferenciasOficialModel() {}
 
     // Construtor
 
-    public LivrosReferenciasModel(Long id_livro_referencias, ImgModel url_img_capa_livro, String titulo_livro, String resumo, Boolean livro_oficial, Boolean livro_ativo_DB,Date data_lacamento_livro, LocalDateTime data_lacamento_dentro_sistema_livro) {
+    public LivrosReferenciasOficialModel(Long id_livro_referencias, ImgModel url_img_capa_livro, String titulo_livro, String resumo, Boolean livro_ativo_DB, Date data_lacamento_livro, LocalDateTime data_lacamento_dentro_sistema_livro) {
         this.id_livro_referencias = id_livro_referencias;
         this.url_img_capa_livro = url_img_capa_livro;
         this.titulo_livro = titulo_livro;
         this.resumo = resumo;
-        this.livro_oficial = livro_oficial;
         this.livro_ativo_DB = livro_ativo_DB;
         this.data_lacamento_livro = data_lacamento_livro;
         this.data_lacamento_dentro_sistema_livro = data_lacamento_dentro_sistema_livro;
@@ -74,14 +75,6 @@ public class LivrosReferenciasModel implements Serializable {
 
     public void setResumo(String resumo) {
         this.resumo = resumo;
-    }
-
-    public Boolean getLivro_oficial() {
-        return livro_oficial;
-    }
-
-    public void setLivro_oficial(Boolean livro_oficial) {
-        this.livro_oficial = livro_oficial;
     }
 
     public Boolean getLivro_ativo_DB() {
