@@ -19,7 +19,6 @@ public class LivrosReferenciasModel implements Serializable {
     private ImgModel url_img_capa_livro;
 
     private String titulo_livro;
-    private Integer ano_livro;
     private String resumo;
     private Boolean livro_oficial;
     private Boolean livro_ativo_DB;
@@ -32,11 +31,10 @@ public class LivrosReferenciasModel implements Serializable {
 
     // Construtor
 
-    public LivrosReferenciasModel(Long id_livro_referencias, ImgModel url_img_capa_livro, String titulo_livro, Integer ano_livro, String resumo, Boolean livro_oficial, Boolean livro_ativo_DB,Date data_lacamento_livro, LocalDateTime data_lacamento_dentro_sistema_livro) {
+    public LivrosReferenciasModel(Long id_livro_referencias, ImgModel url_img_capa_livro, String titulo_livro, String resumo, Boolean livro_oficial, Boolean livro_ativo_DB,Date data_lacamento_livro, LocalDateTime data_lacamento_dentro_sistema_livro) {
         this.id_livro_referencias = id_livro_referencias;
         this.url_img_capa_livro = url_img_capa_livro;
         this.titulo_livro = titulo_livro;
-        this.ano_livro = ano_livro;
         this.resumo = resumo;
         this.livro_oficial = livro_oficial;
         this.livro_ativo_DB = livro_ativo_DB;
@@ -68,14 +66,6 @@ public class LivrosReferenciasModel implements Serializable {
 
     public void setTitulo_livro(String titulo_livro) {
         this.titulo_livro = titulo_livro;
-    }
-
-    public Integer getAno_livro() {
-        return ano_livro;
-    }
-
-    public void setAno_livro(Integer ano_livro) {
-        this.ano_livro = ano_livro;
     }
 
     public String getResumo() {
