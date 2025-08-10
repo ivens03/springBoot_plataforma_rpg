@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import projetos.rpg.application.services.livros.LivrosReferenciasOficialServices;
 import projetos.rpg.domain.model.ficha.livros.LivrosReferenciasOficialModel;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/livro/oficial")
 public class LivrosReferenciasOficialController {
@@ -34,5 +36,21 @@ public class LivrosReferenciasOficialController {
                     return ResponseEntity.ok(atualizarLivroOficial);
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    // Delete logico
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarLivroOficial(@PathVariable Long id_livro_referencias) {
+        livrosReferenciasOficialServices.removerLivroOficial(id_livro_referencias);
+        return ResponseEntity.noContent().build();
+    }
+
+    // Pegar uma unidade de livro oficial
+
+    @GetMapping("/all")
+    public ResponseEntity<List<LivrosReferenciasOficialModel>> obterUnidadeLivroOficial() {
+        List<LivrosReferenciasOficialModel> listaLivrosOficialPublicoComPrivado = livrosReferenciasOficialServices.todosLivrosOficial();
+        return ResponseEntity.ok(listaLivrosOficialPublicoComPrivado);
     }
 }
