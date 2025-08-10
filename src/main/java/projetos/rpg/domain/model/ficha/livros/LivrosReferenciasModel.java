@@ -1,4 +1,4 @@
-package projetos.rpg.domain.model.ficha.statusBasicos;
+package projetos.rpg.domain.model.ficha.livros;
 
 import jakarta.persistence.*;
 import projetos.rpg.domain.model.post.ImgModel;
@@ -10,8 +10,8 @@ import java.util.Date;
 /// Este Model serve para salvar os livros faz a composição de antecedentes, classes, raças e afins
 
 @Entity
-@Table(name = "Livros_base_oficial")
-public class LivrosReferenciasOficialModel implements Serializable {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class LivrosReferenciasModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,14 +26,15 @@ public class LivrosReferenciasOficialModel implements Serializable {
     private Boolean livro_ativo_DB;
     private Date data_lacamento_livro;
     private LocalDateTime data_lacamento_dentro_sistema_livro;
+    private Boolean publico;
 
     // Construtor padrão para JPA
 
-    public LivrosReferenciasOficialModel() {}
+    public LivrosReferenciasModel() {}
 
     // Construtor
 
-    public LivrosReferenciasOficialModel(Long id_livro_referencias, ImgModel url_img_capa_livro, String titulo_livro, String resumo, Boolean livro_ativo_DB, Date data_lacamento_livro, LocalDateTime data_lacamento_dentro_sistema_livro) {
+    public LivrosReferenciasModel(Long id_livro_referencias, ImgModel url_img_capa_livro, String titulo_livro, String resumo, Boolean livro_ativo_DB, Date data_lacamento_livro, LocalDateTime data_lacamento_dentro_sistema_livro, Boolean publico) {
         this.id_livro_referencias = id_livro_referencias;
         this.url_img_capa_livro = url_img_capa_livro;
         this.titulo_livro = titulo_livro;
@@ -41,6 +42,7 @@ public class LivrosReferenciasOficialModel implements Serializable {
         this.livro_ativo_DB = livro_ativo_DB;
         this.data_lacamento_livro = data_lacamento_livro;
         this.data_lacamento_dentro_sistema_livro = data_lacamento_dentro_sistema_livro;
+        this.publico = publico;
     }
 
     // Getter e Setter
@@ -99,5 +101,13 @@ public class LivrosReferenciasOficialModel implements Serializable {
 
     public void setData_lacamento_dentro_sistema_livro(LocalDateTime data_lacamento_dentro_sistema_livro) {
         this.data_lacamento_dentro_sistema_livro = data_lacamento_dentro_sistema_livro;
+    }
+
+    public Boolean getPublico() {
+        return publico;
+    }
+
+    public void setPublico(Boolean publico) {
+        this.publico = publico;
     }
 }
