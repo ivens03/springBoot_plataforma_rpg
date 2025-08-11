@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import projetos.rpg.domain.model.ficha.livros.LivrosReferenciasOficialModel;
 import projetos.rpg.domain.repository.livros.LivrosReferenciasOficialRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,15 +29,15 @@ public class LivrosReferenciasOficialServices {
         return livrosReferenciasOficialRepository.save(livrosReferenciasOficialModel);
     }
 
-    // Pegar todos os livros oficial sendo todos publicos
+    // Lista todos os livros oficial sendo todos publicos para o feed
 
-    public LivrosReferenciasOficialModel todosLivrosOficialPublico (Long id_livro_referencias) {
-        return livrosReferenciasOficialRepository.findById_livro_referenciasAndPublicoTrue(id_livro_referencias);
+    public List<LivrosReferenciasOficialModel> todosLivrosOficial () {
+        return livrosReferenciasOficialRepository.findByPublicoTrue();
     }
 
-    // Pegar os Privados + Publics
+    // lista uma unidade de livro oficial por vez
 
-    public Optional<LivrosReferenciasOficialModel> todosLivrosOficial (Long id_livro_referencias) {
+    public Optional<LivrosReferenciasOficialModel> buscarUnidadeLivroOficial (Long id_livro_referencias) {
         return livrosReferenciasOficialRepository.findById(id_livro_referencias);
     }
 

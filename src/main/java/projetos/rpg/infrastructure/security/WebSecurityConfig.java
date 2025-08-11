@@ -30,7 +30,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/jogador", "/login", "/registro").permitAll() // Permite cadastro e login sem autenticação
                         .requestMatchers("/api/images/upload").permitAll() // Imgs
-                        .requestMatchers("/api/oficial/livros").permitAll() // <---------
+                        .requestMatchers("livro/oficial").permitAll() // Livros
                         .requestMatchers(/*HttpMethod.POST,*/ "/itens").permitAll()
                         .anyRequest().authenticated()
                 )

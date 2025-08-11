@@ -29,7 +29,7 @@ public class LivrosReferenciasOficialController {
 
     @PutMapping("/{id}")
     public ResponseEntity<LivrosReferenciasOficialModel> atulizarLivroOficial(@PathVariable Long id_livro_referencias, @RequestBody LivrosReferenciasOficialModel livrosReferenciasOficialModel) {
-        return livrosReferenciasOficialServices.todosLivrosOficial(id_livro_referencias)
+        return livrosReferenciasOficialServices.buscarUnidadeLivroOficial(id_livro_referencias)
                 .map(livroExistente -> {
                     livrosReferenciasOficialModel.setId_livro_referencias(id_livro_referencias);
                     LivrosReferenciasOficialModel atualizarLivroOficial = livrosReferenciasOficialServices.salvarLivroOficial(livrosReferenciasOficialModel);
