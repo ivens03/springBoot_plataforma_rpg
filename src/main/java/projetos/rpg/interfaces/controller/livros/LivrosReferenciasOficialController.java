@@ -46,11 +46,20 @@ public class LivrosReferenciasOficialController {
         return ResponseEntity.noContent().build();
     }
 
-    // Pegar todos os livros publicos para o feed
+    // Lista todos os livros publicos para o feed
 
     @GetMapping("/all")
     public ResponseEntity<List<LivrosReferenciasOficialModel>> obterUnidadeLivroOficial() {
         List<LivrosReferenciasOficialModel> listaLivrosOficialPublicoComPrivado = livrosReferenciasOficialServices.todosLivrosOficial();
         return ResponseEntity.ok(listaLivrosOficialPublicoComPrivado);
+    }
+
+    // Lista do jogador(Usuario) + Livro publico + Livro privado
+
+    @GetMapping("/{id}")
+    public ResponseEntity<LivrosReferenciasOficialModel> listaPorId(@PathVariable Long id_livro_referencias) {
+        return livrosReferenciasOficialServices.buscarUnidadeLivroOficial(id_livro_referencias)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 }
