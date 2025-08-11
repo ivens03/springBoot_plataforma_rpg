@@ -8,7 +8,7 @@ import projetos.rpg.domain.model.ficha.livros.LivrosReferenciasOficialModel;
 import java.util.List;
 
 @Repository
-public interface LivrosReferenciasComunidadeRepository extends JpaRepository<LivrosReferenciasOficialModel, Long> {
+public interface LivrosReferenciasComunidadeRepository extends JpaRepository<LivrosReferenciasComunidadeModel, Long> {
 
     List<LivrosReferenciasComunidadeModel> findByPublicoTrue();
 
