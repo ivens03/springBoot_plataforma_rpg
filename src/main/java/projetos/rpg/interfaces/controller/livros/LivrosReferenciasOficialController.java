@@ -46,7 +46,7 @@ public class LivrosReferenciasOficialController {
         return ResponseEntity.noContent().build();
     }
 
-    // Pegar uma unidade de livro oficial
+    // Pegar todos os livros publicos para o feed
 
     @GetMapping("/all")
     public ResponseEntity<List<LivrosReferenciasOficialModel>> obterUnidadeLivroOficial() {
