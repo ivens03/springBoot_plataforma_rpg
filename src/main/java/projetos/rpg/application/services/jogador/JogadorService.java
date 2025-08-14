@@ -4,7 +4,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import projetos.rpg.domain.model.jogador.JogadorModel;
-import projetos.rpg.domain.repository.JogadorRepository;
+import projetos.rpg.domain.repository.jogador.JogadorRepository;
 
 import java.util.List;
 import java.util.Optional;

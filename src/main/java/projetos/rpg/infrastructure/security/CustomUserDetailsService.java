@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import projetos.rpg.domain.model.jogador.JogadorModel;
-import projetos.rpg.domain.repository.JogadorRepository;
+import projetos.rpg.domain.repository.jogador.JogadorRepository;
 
 import java.util.ArrayList;
 import java.util.List;

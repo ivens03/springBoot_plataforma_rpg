@@ -1,9 +1,8 @@
-package projetos.rpg.domain.repository.livros;
+package projetos.rpg.domain.repository.pdf;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import projetos.rpg.domain.model.ficha.livros.LivrosReferenciasComunidadeModel;
-import projetos.rpg.domain.model.ficha.livros.LivrosReferenciasOficialModel;
+import projetos.rpg.domain.model.ficha.livros.referencias.LivrosReferenciasComunidadeModel;
 
 import java.util.List;
 

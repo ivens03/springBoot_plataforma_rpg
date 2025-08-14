@@ -1,4 +1,4 @@
-package projetos.rpg.domain.model.ficha.livros;
+package projetos.rpg.domain.model.ficha.livros.referencias;
 
 import jakarta.persistence.*;
 import projetos.rpg.domain.model.post.ImgModel;

@@ -1,4 +1,4 @@
-package projetos.rpg.domain.repository;
+package projetos.rpg.domain.repository.jogador;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

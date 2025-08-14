@@ -7,7 +7,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import projetos.rpg.domain.model.post.ImgModel;
-import projetos.rpg.domain.repository.ImgRepository;
+import projetos.rpg.domain.repository.multiMidia.ImgRepository;
 
 import java.io.IOException;
 import java.nio.file.Files;
