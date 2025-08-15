@@ -32,7 +32,7 @@ public class PdfModel implements Serializable {
     private LocalDateTime data_envio_pdf;
     private Date data_lancamento_pdf;
 
-    private PdfModel () {}
+    public PdfModel() {}
 
     public PdfModel(Long id_pdf, ImgModel url_img_capa_livro, String nome_pdf, String sinopse, LocalDateTime data_envio_pdf, Date data_lancamento_pdf) {
         this.id_pdf = id_pdf;
