@@ -1,4 +1,4 @@
-package projetos.rpg.interfaces.controller;
+package projetos.rpg.interfaces.controller.multiMidia;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;

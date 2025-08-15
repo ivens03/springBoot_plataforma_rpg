@@ -1,4 +1,4 @@
-package projetos.rpg.domain.model.ficha.livros.referencias;
+package projetos.rpg.domain.model.ficha.livros;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
