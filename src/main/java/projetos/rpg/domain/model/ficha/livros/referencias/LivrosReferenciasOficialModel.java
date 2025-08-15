@@ -2,7 +2,7 @@ package projetos.rpg.domain.model.ficha.livros.referencias;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import projetos.rpg.domain.model.post.ImgModel;
+import projetos.rpg.domain.model.multiMidia.ImgModel;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

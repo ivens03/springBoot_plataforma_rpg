@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import projetos.rpg.domain.model.post.ImgModel;
+import projetos.rpg.domain.model.multiMidia.ImgModel;
 import projetos.rpg.domain.repository.multiMidia.ImgRepository;
 
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package projetos.rpg.domain.repository.pdf;
+package projetos.rpg.domain.repository.livros;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

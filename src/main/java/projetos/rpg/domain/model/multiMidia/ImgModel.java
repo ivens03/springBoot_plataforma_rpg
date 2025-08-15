@@ -1,4 +1,4 @@
-package projetos.rpg.domain.model.post;
+package projetos.rpg.domain.model.multiMidia;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

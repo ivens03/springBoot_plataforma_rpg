@@ -2,6 +2,7 @@ package projetos.rpg.domain.model.post;
 
 import jakarta.persistence.*;
 import projetos.rpg.domain.model.jogador.JogadorModel;
+import projetos.rpg.domain.model.multiMidia.ImgModel;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
