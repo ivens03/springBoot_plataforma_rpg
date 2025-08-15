@@ -17,7 +17,7 @@ public class OpenAPIConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI().info(new Info()
             .title("Projeto de estudo plataforma de RPG")
-            .version("0.0.1")
+            .version("0.0.2")
             .description("caso de estudo")
         );
     }

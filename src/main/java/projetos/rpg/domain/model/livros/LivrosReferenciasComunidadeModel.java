@@ -1,4 +1,4 @@
-package projetos.rpg.domain.model.ficha.livros;
+package projetos.rpg.domain.model.livros;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -7,6 +7,16 @@ import projetos.rpg.domain.model.multiMidia.ImgModel;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
+
+/**
+ * Representa um livro de referência oficial, publicado pela editora principal
+ * do sistema de RPG (ex: "Livro do Jogador", "Guia do Mestre").
+ * <p>
+ * Esta entidade é mapeada para a tabela {@code livros_oficiais} e herda
+ * todos os seus atributos da classe base {@link LivrosReferenciasModel}.
+ *
+ * @see LivrosReferenciasModel
+ */
 
 @Entity
 @Table(name = "livros_comunidade")

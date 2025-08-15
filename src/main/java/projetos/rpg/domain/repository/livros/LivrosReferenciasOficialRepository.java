@@ -2,7 +2,7 @@ package projetos.rpg.domain.repository.livros;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import projetos.rpg.domain.model.ficha.livros.LivrosReferenciasOficialModel;
+import projetos.rpg.domain.model.livros.LivrosReferenciasOficialModel;
 
 import java.util.List;
 

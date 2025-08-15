@@ -3,7 +3,7 @@ package projetos.rpg.interfaces.controller.livros;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import projetos.rpg.application.services.livros.LivrosReferenciasOficialServices;
-import projetos.rpg.domain.model.ficha.livros.LivrosReferenciasOficialModel;
+import projetos.rpg.domain.model.livros.LivrosReferenciasOficialModel;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package projetos.rpg.application.services.livros;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import projetos.rpg.domain.model.ficha.livros.LivrosReferenciasOficialModel;
+import projetos.rpg.domain.model.livros.LivrosReferenciasOficialModel;
 import projetos.rpg.domain.repository.livros.LivrosReferenciasOficialRepository;
 
 import java.util.List;

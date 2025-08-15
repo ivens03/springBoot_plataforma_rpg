@@ -1,4 +1,4 @@
-package projetos.rpg.domain.model.ficha.livros;
+package projetos.rpg.domain.model.livros;
 
 import jakarta.persistence.*;
 import projetos.rpg.domain.model.multiMidia.ImgModel;
@@ -7,7 +7,17 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-/// Este Model serve para salvar os livros faz a composição de antecedentes, classes, raças e afins
+/**
+ * Representa a abstração base para todos os livros de referência do sistema.
+ *
+ * <p>
+ * Esta entidade serve como de base para construção de todos os livros,
+ * representando a classe pai dos livros, seja ela oficial ou da comunidade.
+ * <p>
+ *
+ * @see LivrosReferenciasOficialModel
+ * @see LivrosReferenciasComunidadeModel
+ */
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
