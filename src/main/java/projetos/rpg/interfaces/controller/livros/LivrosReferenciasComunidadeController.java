@@ -8,7 +8,7 @@ import projetos.rpg.domain.model.ficha.livros.referencias.LivrosReferenciasComun
 import java.util.List;
 
 @RestController
-@RequestMapping("/livro/oficial")
+@RequestMapping("/livro/comunidade")
 public class LivrosReferenciasComunidadeController {
 
     private final LivrosReferenciasComunidadeServices livrosReferenciasComunidadeServices;
